@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+  <vendor>Linux Manager</vendor>
+  <vendor_url>https://github.com/linuxmanager/linuxmanager</vendor_url>
+
+  <!-- APT Package Management and Maintenance -->
+  <action id="com.linuxmanager.pkexec.apt">
+    <description>Perform package installations, updates, and maintenance</description>
+    <message>Authentication is required to perform package management operations.</message>
+    <icon_name>linux-manager</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/apt-get</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+  <!-- Systemd Services Management -->
+  <action id="com.linuxmanager.pkexec.systemd">
+    <description>Manage systemd services and system units</description>
+    <message>Authentication is required to start, stop, or restart system services.</message>
+    <icon_name>linux-manager</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/systemctl</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+  <!-- System Journal Vacuum -->
+  <action id="com.linuxmanager.pkexec.journal">
+    <description>Vacuum and manage systemd journal logs</description>
+    <message>Authentication is required to manage system journal archives.</message>
+    <icon_name>linux-manager</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/journalctl</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+</policyconfig>

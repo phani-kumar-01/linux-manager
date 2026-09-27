@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Linux Manager
+Comment=Native System, Software, Cleanup and Developer Environment Manager
+GenericName=System Manager
+Exec=linux-manager
+Icon=linux-manager
+Terminal=false
+Type=Application
+Categories=System;Settings;PackageManager;
+Keywords=system;cleanup;apt;package;flatpak;docker;developer;storage;clean;
+StartupNotify=true
